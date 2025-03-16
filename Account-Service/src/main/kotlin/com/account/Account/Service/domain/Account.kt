@@ -1,9 +1,13 @@
 package com.account.Account.Service.domain
 
+import org.springframework.data.annotation.Id
+import org.springframework.data.mongodb.core.mapping.Document
 import java.time.LocalDateTime
 
-data class Account (
-    val id: String,
+@Document(collection = "accounts")
+data class Account(
+    @Id
+    val id: String? = null,
     val currency: String,
     val iban: String,
     val balance: Double,
